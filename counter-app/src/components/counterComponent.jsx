@@ -15,6 +15,9 @@ class Counter extends Component {
       </ul>
     )
   }
+  handleIncreament = () => {
+    console.log('Clicked', this.state.count)
+  }
   render() {
     return (
       <div>
@@ -24,7 +27,12 @@ class Counter extends Component {
         >
           {this.formateCount()}
         </span>
-        <button className="btn btn-secondary btn-sm">Increament</button>
+        <button
+          onClick={this.handleIncreament}
+          className="btn btn-secondary btn-sm"
+        >
+          Increament
+        </button>
         {this.state.tag.length == 0 && 'Please create tag.'}
         {this.renderTag()}
       </div>
