@@ -3,7 +3,17 @@ import React, { Component } from 'react'
 class Counter extends Component {
   state = {
     count: 0,
-    tag: ['tag1', 'tag2', 'tag3'],
+    tag: [],
+  }
+  renderTag() {
+    if (this.state.tag.length == 0) return 'There is no tag.'
+    return (
+      <ul>
+        {this.state.tag.map((tag) => (
+          <li key={tag}>{tag}</li>
+        ))}
+      </ul>
+    )
   }
   render() {
     return (
@@ -15,11 +25,8 @@ class Counter extends Component {
           {this.formateCount()}
         </span>
         <button className="btn btn-secondary btn-sm">Increament</button>
-        <ul>
-          {this.state.tag.map((tag) => (
-            <li key={tag}>{tag}</li>
-          ))}
-        </ul>
+        {this.state.tag.length == 0 && 'Please create tag.'}
+        {this.renderTag()}
       </div>
     )
   }
