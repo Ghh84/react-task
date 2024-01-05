@@ -9,7 +9,7 @@ class Counter extends Component {
       <React.Fragment>
         <span
           style={{ fontSize: 20, alignItems: 'center' }}
-          className="badge badge-primary m-2"
+          className={this.getBadgeClass()}
         >
           {this.formateCount()}
         </span>
@@ -17,6 +17,12 @@ class Counter extends Component {
       </React.Fragment>
     )
   }
+  getBadgeClass() {
+    let classes = 'badge-m2 badge-'
+    classes += this.state.count == 0 ? 'warning' : 'primary'
+    return classes
+  }
+
   formateCount() {
     const { count } = this.state
     return count == 0 ? 'zero' : count
