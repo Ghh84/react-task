@@ -21,6 +21,7 @@ class Counter extends Component {
   render() {
     return (
       <div>
+        <h4> Counter #{this.props.id}</h4>
         <span
           style={{ fontSize: 20, alignItems: 'center', margin: 10 }}
           className={this.getBadgeClass()}
